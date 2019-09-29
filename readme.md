@@ -42,11 +42,11 @@ The real-life file includes five thousand rows and includes invalid rows.
 
 ## Run the following commands
 
-composer install
-php artisan key:generate
-php artisan migrate
-php artisan db:seed
-php artisan serve
+composer install <br />
+php artisan key:generate <br />
+php artisan migrate <br />
+php artisan db:seed <br />
+php artisan serve <br />
 
 ### Postman Collection
 Use the Invoice Upload.postman_collection.json file and mk_test.csv
