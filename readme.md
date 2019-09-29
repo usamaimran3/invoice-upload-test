@@ -37,8 +37,9 @@ The real-life file includes five thousand rows and includes invalid rows.
 # Steps to run the test on local machine:
 
 1. Run: git clone https://github.com/usamaimran3/invoice-upload-test.git
-2. create mysql database with name mk_test
-3. Rename .env.example to .env
+2. cd invoice-upload-test
+3. create mysql database with name mk_test
+4. Rename .env.example to .env
 
 ## Run the following commands
 
