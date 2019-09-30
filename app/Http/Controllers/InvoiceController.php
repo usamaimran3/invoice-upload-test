@@ -14,7 +14,7 @@ class InvoiceController extends Controller
 
     public function index()
     {
-        $invoices = User::find(1)->invoices;
+        $invoices = User::find(1)->invoices; //Used 1 as id of dummy user created by seeder
 
         if($invoices){
             $invoices->transform(function ($invoice){
@@ -33,7 +33,7 @@ class InvoiceController extends Controller
      */
     public function create()
     {
-        $invoices = Invoice::paginate(100);
+        $invoices = Invoice::paginate(100); //Assuming the pagination should be 100
         return view('invoice.create',['invoices'=>$invoices]);
     }
 
@@ -94,7 +94,7 @@ class InvoiceController extends Controller
         foreach ($records as $key => $record) {
 
             if (is_valid_record($record)) {
-                $data[$key]['user_id'] = 1;
+                $data[$key]['user_id'] = 1; //Used 1 as id of dummy user created by seeder
                 $data[$key]['invoice_id'] = $record[0];
                 $data[$key]['amount'] = $record[1];
                 $data[$key]['due_on'] = $record[2];
@@ -111,7 +111,7 @@ class InvoiceController extends Controller
 
         }
 
-        if(!empty($errors)) {
+        if (!empty($errors)) {
             $errors = "Rows ".implode(",",$errors)." are skipped due to invalid data.";
         }
 
