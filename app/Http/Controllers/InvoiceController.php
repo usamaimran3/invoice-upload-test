@@ -14,7 +14,7 @@ class InvoiceController extends Controller
 
     public function index()
     {
-        $invoices = User::find(1)->invoices; //Used 1 as id of dummy user created by seeder
+        $invoices = User::find(getUserID())->invoices; //Get & used ID of dummy user created by seeder
 
         if($invoices){
             $invoices->transform(function ($invoice){
@@ -88,13 +88,14 @@ class InvoiceController extends Controller
         $path = $request->file('file')->getRealPath();
         $records = array_map('str_getcsv', file($path));
 
-        $data = [];
-        $errors = [];
+        $data = $errors = [];
+        
+        $userID = getUserID(); //ID of dummy user created by seeder
 
         foreach ($records as $key => $record) {
 
             if (is_valid_record($record)) {
-                $data[$key]['user_id'] = 1; //Used 1 as id of dummy user created by seeder
+                $data[$key]['user_id'] = $userID;
                 $data[$key]['invoice_id'] = $record[0];
                 $data[$key]['amount'] = $record[1];
                 $data[$key]['due_on'] = $record[2];

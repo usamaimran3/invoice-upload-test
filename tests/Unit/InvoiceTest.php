@@ -31,4 +31,13 @@ class InvoiceTest extends TestCase
         $this->assertArrayHasKey('file', $response->json(['errors']));
 
     }
+
+    /** @test */
+    public function a_user_can_get_invoices()
+    {
+        $response = $this->get('api/get-invoices');
+
+        $this->assertEquals(200, $response->json(['status']));
+
+    }
 }

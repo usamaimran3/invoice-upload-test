@@ -6,6 +6,8 @@
  * Time: 10:11 PM
  */
 
+use App\User;
+ 
 function is_valid_record($record)
 {
 
@@ -20,4 +22,9 @@ function is_valid_date($date)
 {
     $d = DateTime::createFromFormat('Y-m-d', $date);
     return $d && $d->format('Y-m-d') === $date;
+}
+
+function getUserID()
+{
+    return User::first()->id;
 }
